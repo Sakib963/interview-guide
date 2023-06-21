@@ -131,9 +131,29 @@ There are two types of data structure.
 1. Linear
 2. Non Linear
 
-## Explain basic algorithm for binary search tree.
+## 21. Explain basic algorithm for binary search tree.
 1. If the tree is empty, then target is not in the tree, end search.
 2. If the tree is not empty, then the target is in the tree.
 3. Check if the target is in the root item.
 4. If target is not in the room item then check item is smaller than the root or not.
 5. If target is smaller, then search left sub tree, otherwise search right sub tree.
+```js
+const binarySearch = (array, item, start, end) => {
+    if(start > end) 
+        console.log('Item not Found.')
+
+    let mid = Math.floor((start + end) / 2);
+
+    if(array[mid] === item) 
+    console.log(`Item Found in index ${mid}.`)
+
+    if(array[mid] > item)
+        return binarySearch(array, item, start, mid-1);
+    
+    else
+        return binarySearch(array, item, mid+1, end);
+}
+
+const sortedArray = [1, 2, 3, 5, 7, 9, 10];
+binarySearch(sortedArray, 3, 0, sortedArray.length -1);
+```
